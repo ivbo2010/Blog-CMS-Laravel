@@ -61,7 +61,7 @@ class TagController extends Controller
 
             $rules += [$locale . '.name' => ['required', Rule::unique('tag_translations', 'name')->ignore($tag->id, 'tag_id')]];
 
-        }//end of for each
+        }
 
         $request->validate($rules);
 

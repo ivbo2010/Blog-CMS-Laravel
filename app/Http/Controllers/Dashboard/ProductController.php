@@ -57,7 +57,7 @@ class ProductController extends Controller
             $rules += [$locale . '.name' => 'required|unique:product_translations,name'];
             $rules += [$locale . '.description' => 'required'];
 
-        }//end of  for each
+        }
 
         $rules += [
             'purchase_price' => 'required',
@@ -105,10 +105,13 @@ class ProductController extends Controller
 
         foreach (config('translatable.locales') as $locale) {
 
+           // $rules += [$locale . '.name' => ['required', Rule::unique('product_translations', 'name')->ignore($product->id, 'product_id')]];
+           // $rules += [$locale . '.description' => 'required'];
             $rules += [$locale . '.name' => ['required', Rule::unique('product_translations', 'name')->ignore($product->id, 'product_id')]];
-            $rules += [$locale . '.description' => 'required'];
+            $rules += [$locale . '.description' => ['required', Rule::unique('product_translations', 'description')->ignore($product->id, 'product_id')]];
 
         }
+
 
         $rules += [
             'purchase_price' => 'required',

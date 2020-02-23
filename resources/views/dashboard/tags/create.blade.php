@@ -23,20 +23,29 @@
                 <div class="box-body">
 
                     @include('partials._errors')
-
+                    <ul class="nav nav-tabs">
+                        @foreach (config('translatable.locales') as $index=>$locale)
+                            <li class="nav-item">
+                                <a href="#" data-target="#{{ $locale }}" data-toggle="tab"  class="nav-link small text-uppercase {{ $index == 0 ? 'active' : '' }}">@lang($locale)
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
                     <form action="{{ route('dashboard.tags.store') }}" method="post">
 
                         {{ csrf_field() }}
                         {{ method_field('post') }}
 
-                        @foreach (config('translatable.locales') as $locale)
+                        <div class="tab-content">
+                            @foreach (config('translatable.locales') as $index=>$locale)
+                                <div class="tab-pane {{ $index == 0 ? 'active' : '' }} py-3" id="{{ $locale }}">
                             <div class="form-group">
                                 <label>@lang('site.' . $locale . '.name')</label>
                                 <input type="text" name="{{ $locale }}[name]" class="form-control" value="{{ old($locale . '.name') }}">
                             </div>
-                            
+                                </div>
                         @endforeach
-
+                                </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</button>
                         </div>
