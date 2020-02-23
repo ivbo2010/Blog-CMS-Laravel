@@ -31,14 +31,8 @@ return [
     'no_data_found' => 'Sorry No Data Found',
     'no_records' => 'Sorry No Records Found',
 
-    'clients' => 'Клиент',
-    'client_name' => 'Име на клиент',
     'phone' => 'Телефон',
     'address' => 'Адрес',
-    'previous_orders' => 'Предишни поръчки',
-    'orders' => 'Поръчки',
-    'add_order' => 'Добави поръчка',
-    'edit_order' => 'Редактиране на поръчка',
 
     'users' => 'Потребители',
     'first_name' => 'Име',
@@ -55,28 +49,6 @@ return [
 
     'categories' => 'Категории',
     'all_categories' => 'Всички категории',
-
-    'all_clients' => 'Всички клиенти',
-
-    'areas' => 'Области',
-    'all_areas' => 'Всички области',
-    'area' => 'Област',
-
-    'bricks' => 'Bricks',
-    'all_bricks' => 'All Bricks',
-    'brick' => 'Brick',
-
-    'governs' => 'Governs',
-    'all_governs' => 'ِAll Governs',
-    'govern' => 'Govern',
-    'related_governs' => 'Related Governs',
-    'govern_count' => 'Governs Count',
-
-    'zones' => 'Зони',
-    'all_zones' => 'Всички Зони',
-    'zone' => 'Зона',
-    'related_zones' => 'Свързани зони',
-    'zones_count' => 'Брой зони',
 
     'name' => 'Име',
     'description' => 'Описание',
