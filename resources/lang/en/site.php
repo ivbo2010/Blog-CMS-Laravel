@@ -31,14 +31,8 @@ return [
     'no_data_found' => 'Sorry No Data Found',
     'no_records' => 'Sorry No Records Found',
 
-    'clients' => 'Clients',
-    'client_name' => 'Client Name',
     'phone' => 'Tel',
     'address' => 'Address',
-    'previous_orders' => 'Previous Orders',
-    'orders' => 'Orders',
-    'add_order' => 'Add Order',
-    'edit_order' => 'Edit Order',
 
     'users' => 'Users',
     'first_name' => 'First Name',
@@ -56,27 +50,6 @@ return [
     'categories' => 'Categories',
     'all_categories' => 'All Categories',
 
-    'all_clients' => 'All Clients',
-
-    'areas' => 'Areas',
-    'all_areas' => 'All Areas',
-    'area' => 'Area',
-
-    'bricks' => 'Bricks',
-    'all_bricks' => 'All Bricks',
-    'brick' => 'Brick',
-
-    'governs' => 'Governs',
-    'all_governs' => 'ِAll Governs',
-    'govern' => 'Govern',
-    'related_governs' => 'Related Governs',
-    'govern_count' => 'Governs Count',
-
-    'zones' => 'Zones',
-    'all_zones' => 'All Zones',
-    'zone' => 'Zone',
-    'related_zones' => 'Related Zones',
-    'zones_count' => 'Zones Count',
 
     'name' => 'Name',
     'description' => 'Description',
