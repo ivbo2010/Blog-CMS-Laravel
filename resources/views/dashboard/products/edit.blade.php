@@ -38,6 +38,15 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label>@lang('site.tags')</label>
+                            <select name="tag_id" class="form-control">
+                                <option value="">@lang('site.all_tags')</option>
+                                @foreach ($tags as $tag)
+                                    <option value="{{ $tag->id }}" {{ $product->tag_id == $tag->id ? 'selected' : '' }}>{{ $tag->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
                         @foreach (config('translatable.locales') as $locale)
                             <div class="form-group">

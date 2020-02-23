@@ -65,6 +65,7 @@
                                 <th>@lang('site.name')</th>
                                 <th>@lang('site.description')</th>
                                 <th>@lang('site.category')</th>
+                                <th>@lang('site.tag')</th>
                                 <th>@lang('site.image')</th>
                                 <th>@lang('site.purchase_price')</th>
                                 <th>@lang('site.sale_price')</th>
@@ -80,6 +81,7 @@
                                     <td>{{ $product->name }}</td>
                                     <td>{!! $product->description !!}</td>
                                     <td>{{ $product->category->name }}</td>
+                                    <td>{{ $product->tag->name }}</td>
                                     <td><img src="{{ $product->image_path }}" style="width: 60px; height:60px"  class="img-thumbnail" alt=""></td>
                                     <td>{{ $product->purchase_price }}</td>
                                     <td>{{ $product->sale_price }}</td>
