@@ -26,6 +26,12 @@ class Product extends Model
 
     }
 
+    public function tag()
+    {
+        return $this->belongsTo(Tag::class);
+
+    }
+
     public function getImagePathAttribute()
     {
         return asset('uploads/product_images/' . $this->image);

@@ -49,6 +49,9 @@ return [
 
     'categories' => 'Categories',
     'all_categories' => 'All Categories',
+    'tag'=>'Tag',
+    'tags' => 'Tags',
+    'all_tags' => 'All Tags',
 
 
     'name' => 'Name',

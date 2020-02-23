@@ -36,6 +36,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             //category routes
            Route::resource('categories', 'Dashboard\CategoryController')->except(['show']);
 
+            //category routes
+            Route::resource('tags', 'Dashboard\TagController')->except(['show']);
 
             //product routes
             Route::resource('products', 'Dashboard\ProductController')->except(['show']);

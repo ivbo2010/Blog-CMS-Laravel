@@ -49,6 +49,9 @@ return [
 
     'categories' => 'Категории',
     'all_categories' => 'Всички категории',
+    'tag'=>'Таг',
+    'tags' => 'Тагове',
+    'all_tags' => 'Всички Тагове',
 
     'name' => 'Име',
     'description' => 'Описание',

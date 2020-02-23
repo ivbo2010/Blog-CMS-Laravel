@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Category;
 use App\Product;
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -12,10 +13,14 @@ use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(Request $request)
     {
         $categories = Category::all();
-
+        $tags=Tag::all();
         $products = Product::when($request->search, function ($q) use ($request) {
 
             return $q->whereTranslationLike('name', '%' . $request->search . '%');
@@ -24,23 +29,27 @@ class ProductController extends Controller
 
             return $q->where('category_id', $request->category_id);
 
+        })->when($request->tag_id, function ($q) use ($request) {
+
+            return $q->where('tag_id', $request->tag_id);
         })->latest()->paginate(5);
 
-        return view('dashboard.products.index', compact('categories', 'products'));
+        return view('dashboard.products.index', compact('categories', 'products','tags'));
 
     }//end of index
 
     public function create()
     {
         $categories = Category::all();
-        return view('dashboard.products.create', compact('categories'));
+        $tags =Tag::all();
+        return view('dashboard.products.create', compact('categories','tags'));
 
     }//end of create
 
     public function store(Request $request)
     {
         $rules = [
-            'category_id' => 'required'
+            'category_id' => 'required',
         ];
 
         foreach (config('translatable.locales') as $locale) {
@@ -70,8 +79,7 @@ class ProductController extends Controller
 
             $request_data['image'] = $request->image->hashName();
 
-        }else
-        {
+        } else {
             $request_data['image'] = 'default.png';
         }
 
@@ -84,7 +92,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::all();
-        return view('dashboard.products.edit', compact('categories', 'product'));
+        $tags= Tag::all();
+        return view('dashboard.products.edit', compact('categories', 'product','tags'));
 
     }//end of edit
 
@@ -127,9 +136,7 @@ class ProductController extends Controller
 
             $request_data['image'] = $request->image->hashName();
 
-        }
-        else
-        {
+        } else {
             $request_data['image'] = 'default.png';
         }
 
