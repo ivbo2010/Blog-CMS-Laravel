@@ -34,17 +34,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()],
 
          Route::get('/', 'Dashboard\WelcomeController@index')->name('welcome');
 
-            //category routes
            Route::resource('categories', 'Dashboard\CategoryController')->except(['show']);
-
-            //category routes
-            Route::resource('tags', 'Dashboard\TagController')->except(['show']);
-
-            //product routes
-            Route::resource('products', 'Dashboard\ProductController')->except(['show']);
-
-
-            //user routes
+           Route::resource('tags', 'Dashboard\TagController')->except(['show']);
+           Route::resource('products', 'Dashboard\ProductController')->except(['show']);
            Route::resource('users', 'Dashboard\UserController')->except(['show']);
 
         });//end of dashboard routes
