@@ -26,7 +26,8 @@ Route::get('locale/{locale}', function ($locale){
     Session::put('locale', $locale);
     return redirect()->back();
 });
-Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']],
+
+Route::group(['prefix' => LaravelLocalization::setLocale()],
     function () {
 
         Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {

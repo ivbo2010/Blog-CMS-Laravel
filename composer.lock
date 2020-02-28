@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "793ea4139bcc74e79a8cd1cd6de4af9a",
+    "content-hash": "10547154246c3e86d6f0945103f006de",
     "packages": [
         {
             "name": "astrotomic/laravel-translatable",
-            "version": "v11.7.0",
+            "version": "11.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Astrotomic/laravel-translatable.git",
-                "reference": "889f8b91f28a8a72873099cf452945adbd03dc9f"
+                "reference": "d454ca5d73515a0878ed8b1f8df7e0510d351d2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Astrotomic/laravel-translatable/zipball/889f8b91f28a8a72873099cf452945adbd03dc9f",
-                "reference": "889f8b91f28a8a72873099cf452945adbd03dc9f",
+                "url": "https://api.github.com/repos/Astrotomic/laravel-translatable/zipball/d454ca5d73515a0878ed8b1f8df7e0510d351d2c",
+                "reference": "d454ca5d73515a0878ed8b1f8df7e0510d351d2c",
                 "shasum": ""
             },
             "require": {
@@ -68,7 +68,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2020-01-28T11:49:28+00:00"
+            "time": "2020-02-27T11:09:11+00:00"
         },
         {
             "name": "caouecs/laravel-lang",
@@ -720,16 +720,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.16.0",
+            "version": "v6.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b47217e41868d3049ec545cbb713aa94c6f39e55"
+                "reference": "32d1ed55dd46dcd706ff2e45bb7965be7320b87d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b47217e41868d3049ec545cbb713aa94c6f39e55",
-                "reference": "b47217e41868d3049ec545cbb713aa94c6f39e55",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/32d1ed55dd46dcd706ff2e45bb7965be7320b87d",
+                "reference": "32d1ed55dd46dcd706ff2e45bb7965be7320b87d",
                 "shasum": ""
             },
             "require": {
@@ -862,7 +862,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-02-18T15:17:52+00:00"
+            "time": "2020-02-26T14:23:01+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4347,16 +4347,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.0.0",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "a48807183a4b819072f26e347bbd0b5199a9d15f"
+                "reference": "cd72d394ca794d3466a3b2fc09d5a6c1dc86b47e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/a48807183a4b819072f26e347bbd0b5199a9d15f",
-                "reference": "a48807183a4b819072f26e347bbd0b5199a9d15f",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/cd72d394ca794d3466a3b2fc09d5a6c1dc86b47e",
+                "reference": "cd72d394ca794d3466a3b2fc09d5a6c1dc86b47e",
                 "shasum": ""
             },
             "require": {
@@ -4396,7 +4396,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2020-02-09T09:16:15+00:00"
+            "time": "2020-02-22T12:28:44+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
