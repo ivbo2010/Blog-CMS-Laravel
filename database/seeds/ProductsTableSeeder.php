@@ -17,7 +17,8 @@ class ProductsTableSeeder extends Seeder
 
             \App\Product::create([
                 'category_id' => 1,
-                'ar' => ['name' => 'صنف'.$product, 'description' => 'وصف'.$product],
+                'tag_id' => 1,
+                'bg' => ['name' => 'Продукт'.$product, 'description' => 'Описание'.$product],
                 'en' => ['name' => 'Product'.$product, 'description' => 'Description'.$product],
                 'purchase_price' => 100,
                 'sale_price' => 150,

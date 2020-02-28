@@ -2,7 +2,6 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class LaratrustSeeder extends Seeder
 {
@@ -13,8 +12,8 @@ class LaratrustSeeder extends Seeder
      */
     public function run()
     {
-        $this->command->info('Truncating User, Role and Permission tables');
-        $this->truncateLaratrustTables();
+        // $this->command->info('Truncating User, Role and Permission tables');
+        // $this->truncateLaratrustTables();
 
         $config = config('laratrust_seeder.role_structure');
         $userPermission = config('laratrust_seeder.permission_structure');
@@ -40,7 +39,7 @@ class LaratrustSeeder extends Seeder
                     $permissionValue = $mapPermission->get($perm);
 
                     $permissions[] = \App\Permission::firstOrCreate([
-                        'name' => $permissionValue . '-' . $module,
+                        'name' => $permissionValue . '_' . $module,
                         'display_name' => ucfirst($permissionValue) . ' ' . ucfirst($module),
                         'description' => ucfirst($permissionValue) . ' ' . ucfirst($module),
                     ])->id;
@@ -55,13 +54,13 @@ class LaratrustSeeder extends Seeder
             $this->command->info("Creating '{$key}' user");
 
             // Create default user for each role
-            $user = \App\User::create([
-                'name' => ucwords(str_replace('_', ' ', $key)),
-                'email' => $key.'@app.com',
-                'password' => bcrypt('password')
-            ]);
-
-            $user->attachRole($role);
+//            $user = \App\User::create([
+//                'name' => ucwords(str_replace('_', ' ', $key)),
+//                'email' => $key.'@app.com',
+//                'password' => bcrypt('password')
+//            ]);
+//
+//            $user->attachRole($role);
         }
 
         // Creating user with permissions
@@ -73,10 +72,12 @@ class LaratrustSeeder extends Seeder
 
                     // Create default user for each permission set
                     $user = \App\User::create([
-                        'name' => ucwords(str_replace('_', ' ', $key)),
+                        'first_name' => ucwords(str_replace('_', ' ', $key)),
+                        'last_name' => '.',
+
                         'email' => $key.'@app.com',
                         'password' => bcrypt('password'),
-                        'remember_token' => Str::random(10),
+                        'remember_token' => str_random(10),
                     ]);
                     $permissions = [];
 

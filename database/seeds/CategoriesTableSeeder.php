@@ -16,7 +16,7 @@ class CategoriesTableSeeder extends Seeder
         foreach ($products as $product) {
 
             \App\Category::create([
-                'ar' => ['name' => 'مجموعه'.$product],
+                'bg' => ['name' => 'Категория'.$product],
                 'en' => ['name' => 'Category'.$product],
                 ]);
 

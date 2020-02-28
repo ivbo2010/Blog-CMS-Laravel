@@ -106,7 +106,7 @@
             </a>
 
             <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav">
 
                     <li class="dropdown tasks-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-flag-checkered"></i></a>
@@ -114,12 +114,23 @@
                             <li>
 
                                 <ul class="menu">
+
                                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                        @if ($localeCode == 'en')
                                         <li>
+
                                             <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                                 {{ $properties['native'] }}
                                             </a>
                                         </li>
+                                        @elseif($localeCode == 'bg')
+                                            <li>
+
+                                                <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                                    {{ $properties['native'] }}
+                                                </a>
+                                            </li>
+                                            @endif
                                     @endforeach
                                 </ul>
                             </li>
