@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('admin_assets/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin_assets/css/skin-blue.min.css') }}">
 
-    @if (app()->getLocale() == 'ar')
+    @if (app()->getLocale() == 'bg')
         <link rel="stylesheet" href="{{ asset('admin_assets/css/font-awesome-rtl.min.css') }}">
         <link rel="stylesheet" href="{{ asset('admin_assets/css/AdminLTE-rtl.min.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
@@ -18,7 +18,7 @@
 
         <style>
             body, h1, h2, h3, h4, h5, h6 {
-                font-family: 'Cairo', sans-serif !important;
+                font-family: 'Arial', sans-serif !important;
             }
         </style>
     @else

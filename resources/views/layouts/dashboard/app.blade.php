@@ -12,23 +12,11 @@
     <link rel="stylesheet" href="{{ asset('admin_assets/css/skin-blue.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-    @if (app()->getLocale() == 'ar')
-        <link rel="stylesheet" href="{{ asset('admin_assets/css/font-awesome-rtl.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin_assets/css/AdminLTE-rtl.min.css') }}">
-        <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap-rtl.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('admin_assets/css/rtl.css') }}">
 
-        <style>
-            body, h1, h2, h3, h4, h5, h6 {
-                font-family: 'Cairo', sans-serif !important;
-            }
-        </style>
-    @else
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         <link rel="stylesheet" href="{{ asset('admin_assets/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('admin_assets/css/AdminLTE.min.css') }}">
-    @endif
+
 
     <style>
         .mr-2{
@@ -116,21 +104,14 @@
                                 <ul class="menu">
 
                                     @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                        @if ($localeCode == 'en')
+
                                         <li>
 
                                             <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                                 {{ $properties['native'] }}
                                             </a>
                                         </li>
-                                        @elseif($localeCode == 'bg')
-                                            <li>
 
-                                                <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                                    {{ $properties['native'] }}
-                                                </a>
-                                            </li>
-                                            @endif
                                     @endforeach
                                 </ul>
                             </li>
