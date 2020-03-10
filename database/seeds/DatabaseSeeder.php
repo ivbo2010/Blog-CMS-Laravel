@@ -2,36 +2,32 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
-{
+class DatabaseSeeder extends Seeder {
     /**
      * Seed the application's database.
      *
      * @return void
      */
-    public function run()
-    {
-
+    public function run() {
         Eloquent::unguard();
 
-		//disable foreign key check for this connection before running seeders
-       Schema::disableForeignKeyConstraints();
+        //disable foreign key check for this connection before running seeders
+        Schema::disableForeignKeyConstraints();
         // DB::table('roles')->truncate();
 
         // DB::table('permissions')->truncate();
         //         DB::table('users')->truncate();
 
-      //  DB::disableForeignKeyCheck();
+        //  DB::disableForeignKeyCheck();
 
-       $this->call(LaratrustSeeder::class);
-       $this->call(UsersTableSeeder::class);
-        $this->call(CategoriesTableSeeder::class);
-        $this->call(ProductsTableSeeder::class);
-        $this->call(TagsTableSeeder::class);
+        $this->call( LaratrustSeeder::class );
+        $this->call( UsersTableSeeder::class );
+        //$this->call(TagsTableSeeder::class);
+        $this->call( CategoriesTableSeeder::class );
+        $this->call( ProductsTableSeeder::class );
 
         //DB::enableForeignKeyCheck();
         //Schema::enableForeignKeyConstraints();
-
 
     }
 }

@@ -80,8 +80,12 @@
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td>{!! $product->description !!}</td>
-                                    <td>{{ $product->category->name }}</td>
-                                    <td>{{ $product->tag->name }}</td>
+                                             <td>
+                                        @if ($product->category) {{ $product->category->name }} @endif
+                                    </td>
+                                    <td>
+                                        @if ($product->tag) {{ $product->tag->name }} @endif
+                                    </td>
                                     <td><img src="{{ $product->image_path }}" style="width: 60px; height:60px"  class="img-thumbnail" alt=""></td>
                                     <td>{{ $product->purchase_price }}</td>
                                     <td>{{ $product->sale_price }}</td>

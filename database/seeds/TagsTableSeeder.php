@@ -4,23 +4,19 @@ use Illuminate\Database\Seeder;
 
 class TagsTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+ 
     public function run()
     {
-        $products = ['1', '2'];
+        /*$products = ['1', '2'];
 
         foreach ($products as $product) {
 
             \App\Tag::create([
-                'bg' => ['name' => 'Таг'.$product],
+                'bg' => ['name' => 'Tag1'.$product],
                 'en' => ['name' => 'Tags'.$product],
             ]);
 
-        }//end of foreach
+        }*/
 
-    }//end of run
+    }
 }
