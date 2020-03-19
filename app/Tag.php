@@ -10,17 +10,12 @@ use Astrotomic\Translatable\Translatable;
 
 use Sqits\UserStamps\Concerns\HasUserStamps;
 
-class Tag extends Model
-{
+class Tag extends Model {
     use Translatable;
-    //   use HasUserStamps;
-
     protected $guarded = [];
-    public $translatedAttributes = ['name'];
+    public $translatedAttributes = [ 'name' ];
 
-    public function products()
-    {
-        return $this->hasMany(Product::class);
-
+    public function products() {
+        return $this->hasMany( Product::class );
     }
 }

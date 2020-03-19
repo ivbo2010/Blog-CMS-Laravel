@@ -11,8 +11,6 @@ use Laratrust\Traits\LaratrustUserTrait;
 
 use Sqits\UserStamps\Concerns\HasUserStamps;
 
-
-
 class User extends Authenticatable
 {
     use LaratrustUserTrait;
@@ -39,22 +37,35 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * @param $value
+     *
+     * @return string
+     */
     public function getFirstNameAttribute($value)
     {
         return ucfirst($value);
 
-    }//end of get first name
+    }
 
+    /**
+     * @param $value
+     *
+     * @return string
+     */
     public function getLastNameAttribute($value)
     {
         return ucfirst($value);
 
-    }//end of get last name
+    }
 
+    /**
+     * @return string
+     */
     public function getImagePathAttribute()
     {
         return asset('uploads/user_images/' . $this->image);
 
-    }//end of get image path
+    }
 
-}//end of model
+}

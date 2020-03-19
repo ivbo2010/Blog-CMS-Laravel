@@ -36,16 +36,24 @@ class ProductController extends Controller
 
         return view('dashboard.products.index', compact('categories', 'products','tags'));
 
-    }//end of index
+    }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         $categories = Category::all();
         $tags =Tag::all();
         return view('dashboard.products.create', compact('categories','tags'));
 
-    }//end of create
+    }
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Request $request)
     {
         $rules = [
@@ -87,16 +95,27 @@ class ProductController extends Controller
         session()->flash('success', __('site.added_successfully'));
         return redirect()->route('dashboard.products.index');
 
-    }//end of store
+    }
 
+    /**
+     * @param \App\Product $product
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit(Product $product)
     {
         $categories = Category::all();
         $tags= Tag::all();
         return view('dashboard.products.edit', compact('categories', 'product','tags'));
 
-    }//end of edit
+    }
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Product $product
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Request $request, Product $product)
     {
         $rules = [
@@ -147,20 +166,26 @@ class ProductController extends Controller
         session()->flash('success', __('site.updated_successfully'));
         return redirect()->route('dashboard.products.index');
 
-    }//end of update
+    }
 
+    /**
+     * @param \App\Product $product
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
     public function destroy(Product $product)
     {
         if ($product->image != 'default.png') {
 
             Storage::disk('public')->delete('/product_images/' . $product->image);
 
-        }//end of if
+        }
 
         $product->delete();
         session()->flash('success', __('site.deleted_successfully'));
         return redirect()->route('dashboard.products.index');
 
-    }//end of destroy
+    }
 
-}//end of controller
+}

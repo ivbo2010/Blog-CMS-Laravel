@@ -12,8 +12,6 @@ class LaratrustSeeder extends Seeder
      */
     public function run()
     {
-        // $this->command->info('Truncating User, Role and Permission tables');
-        // $this->truncateLaratrustTables();
 
         $config = config('laratrust_seeder.role_structure');
         $userPermission = config('laratrust_seeder.permission_structure');
@@ -21,7 +19,6 @@ class LaratrustSeeder extends Seeder
 
         foreach ($config as $key => $modules) {
 
-            // Create a new role
             $role = \App\Role::create([
                 'name' => $key,
                 'display_name' => ucwords(str_replace('_', ' ', $key)),
@@ -31,7 +28,6 @@ class LaratrustSeeder extends Seeder
 
             $this->command->info('Creating Role '. strtoupper($key));
 
-            // Reading role permission modules
             foreach ($modules as $module => $value) {
 
                 foreach (explode(',', $value) as $p => $perm) {
@@ -48,29 +44,19 @@ class LaratrustSeeder extends Seeder
                 }
             }
 
-            // Attach all permissions to the role
             $role->permissions()->sync($permissions);
 
             $this->command->info("Creating '{$key}' user");
 
-            // Create default user for each role
-//            $user = \App\User::create([
-//                'name' => ucwords(str_replace('_', ' ', $key)),
-//                'email' => $key.'@app.com',
-//                'password' => bcrypt('password')
-//            ]);
-//
-//            $user->attachRole($role);
         }
 
-        // Creating user with permissions
         if (!empty($userPermission)) {
 
             foreach ($userPermission as $key => $modules) {
 
                 foreach ($modules as $module => $value) {
 
-                    // Create default user for each permission set
+
                     $user = \App\User::create([
                         'first_name' => ucwords(str_replace('_', ' ', $key)),
                         'last_name' => '.',
@@ -95,7 +81,6 @@ class LaratrustSeeder extends Seeder
                     }
                 }
 
-                // Attach all permissions to the user
                 $user->permissions()->sync($permissions);
             }
         }

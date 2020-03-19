@@ -19,14 +19,14 @@ class CategoriesTableSeeder extends Seeder
                 'bg' => ['name' => 'Категория'.$product],
                 'en' => ['name' => 'Category'.$product],
                 ]);
-				
+
 				\App\Tag::create([
                 'bg' => ['name' => 'Tag1-2'.$product],
                 'en' => ['name' => 'Tags-1'.$product],
             ]);
 
-        }//end of foreach
+        }
 
-    }//end of run
+    }
 
-}//end of seeder
+}

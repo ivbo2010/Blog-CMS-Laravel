@@ -7,74 +7,67 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 
-class CategoryController extends Controller
-{
-    public function index(Request $request)
-    {
-        $categories = Category::when($request->search, function ($q) use ($request) {
+class CategoryController extends Controller {
+    public function index( Request $request ) {
+        $categories = Category::when( $request->search, function ( $q ) use ( $request ) {
+            return $q->whereTranslationLike( 'name', '%' . $request->search . '%' );
+        } )->latest()->paginate( 5 );
 
-            return $q->whereTranslationLike('name', '%' . $request->search . '%');
+        return view( 'dashboard.categories.index', compact( 'categories' ) );
+    }
 
-        })->latest()->paginate(5);
+    public function create() {
+        return view( 'dashboard.categories.create' );
+    }
 
-        return view('dashboard.categories.index', compact('categories'));
-
-    }//end of index
-
-    public function create()
-    {
-        return view('dashboard.categories.create');
-
-    }//end of create
-
-    public function store(Request $request)
-    {
+    public function store( Request $request ) {
         $rules = [];
 
-        foreach (config('translatable.locales') as $locale) {
+        foreach ( config( 'translatable.locales' ) as $locale ) {
+            $rules += [
+                $locale . '.name' => [
+                    'required',
+                    Rule::unique( 'category_translations', 'name' )
+                ]
+            ];
+        }
 
-            $rules += [$locale . '.name' => ['required', Rule::unique('category_translations', 'name')]];
+        $request->validate( $rules );
 
-        }//end of for each
+        Category::create( $request->all() );
+        session()->flash( 'success', __( 'site.added_successfully' ) );
 
-        $request->validate($rules);
+        return redirect()->route( 'dashboard.categories.index' );
+    }
 
-        Category::create($request->all());
-        session()->flash('success', __('site.added_successfully'));
-        return redirect()->route('dashboard.categories.index');
+    public function edit( Category $category ) {
+        return view( 'dashboard.categories.edit', compact( 'category' ) );
+    }
 
-    }//end of store
-
-    public function edit(Category $category)
-    {
-        return view('dashboard.categories.edit', compact('category'));
-
-    }//end of edit
-
-    public function update(Request $request, Category $category)
-    {
+    public function update( Request $request, Category $category ) {
         $rules = [];
 
-        foreach (config('translatable.locales') as $locale) {
+        foreach ( config( 'translatable.locales' ) as $locale ) {
+            $rules += [
+                $locale . '.name' => [
+                    'required',
+                    Rule::unique( 'category_translations', 'name' )->ignore( $category->id, 'category_id' )
+                ]
+            ];
+        }
 
-            $rules += [$locale . '.name' => ['required', Rule::unique('category_translations', 'name')->ignore($category->id, 'category_id')]];
+        $request->validate( $rules );
 
-        }//end of for each
+        $category->update( $request->all() );
+        session()->flash( 'success', __( 'site.updated_successfully' ) );
 
-        $request->validate($rules);
+        return redirect()->route( 'dashboard.categories.index' );
+    }
 
-        $category->update($request->all());
-        session()->flash('success', __('site.updated_successfully'));
-        return redirect()->route('dashboard.categories.index');
-
-    }//end of update
-
-    public function destroy(Category $category)
-    {
+    public function destroy( Category $category ) {
         $category->delete();
-        session()->flash('success', __('site.deleted_successfully'));
-        return redirect()->route('dashboard.categories.index');
+        session()->flash( 'success', __( 'site.deleted_successfully' ) );
 
-    }//end of destroy
-
-}//end of controller
+        return redirect()->route( 'dashboard.categories.index' );
+    }
+}
